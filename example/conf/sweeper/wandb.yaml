@@ -10,7 +10,7 @@ hydra:
       name: hydra_plugin_test
 
       # (Required) Specify the search strategy.
-      method: bayes
+      method: grid
 
       # (Optional) Specify the metric to optimize (only used by certain search
       # strategies and stopping criteria). Default is {}.

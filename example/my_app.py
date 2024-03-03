@@ -96,5 +96,5 @@ class DummyTraining(TaskFunction):
 
 if __name__ == "__main__":
     dummy_training = DummyTraining()
-    app = hydra.main(config_path="conf", config_name="config")(dummy_training.__call__)
+    app = hydra.main(config_path="conf", config_name="config", version_base="1.3.0")(dummy_training.__call__)
     app()

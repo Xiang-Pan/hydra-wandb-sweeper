@@ -95,7 +95,7 @@ class WandbConfig:
 
 @dataclass
 class WandbSweeperConf:
-    wandb_sweep_config: WandbConfig = WandbConfig()
+    wandb_sweep_config: WandbConfig = field(default_factory=lambda: WandbConfig(name="default_sweep_name", method="grid"))
     _target_: str = "hydra_plugins.hydra_wandb_sweeper.wandb_sweeper.WandbSweeper"
 
     # Parametrization of the wandb sweep search space can be specified:
