@@ -1,4 +1,4 @@
-examples/outputs
+examples/outputs/
 examples/multirun/
 # Byte-compiled / optimized / DLL files
 __pycache__/
