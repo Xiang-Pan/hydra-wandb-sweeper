@@ -32,8 +32,6 @@ from wandb.sdk.wandb_sweep import _get_sweep_url
 
 from hydra_plugins.hydra_wandb_sweeper.config import WandbConfig, WandbParameterSpec
 
-# TODO: switch to lazy %-style logging  (will make code look less readable though)
-# https://docs.python.org/3/howto/logging.html#optimization
 logger = logging.getLogger(__name__)
 
 SUPPORTED_DISTRIBUTIONS = {
@@ -79,7 +77,7 @@ __main_file__ = __main__.__file__
 # Used by wandb.sweep since it checks if __stage_dir__ in wandb.old.core is set in
 # order to create it for eventually saving the sweep config yaml to. If it's not set it defaults
 # to 'wandb' + os.sep
-wandb.old.core._set_stage_dir(".wandb" + os.sep)
+wandb.old.core._set_stage_dir(f".wandb{os.sep}")
 
 """
 Wandb monkeypatches.

@@ -1,4 +1,5 @@
 defaults:
+  - override hydra/launcher: submitit_slurm
   - override hydra/sweeper: wandb
   - _self_
 
@@ -11,3 +12,12 @@ experiment:
 model:
   name: test_model
   dropout: 0.6
+
+hydra:
+  mode: MULTIRUN
+  job:
+    chdir: false
+  run: # don't put outputs in HOME, use SCRATCH instead
+    dir: ./logs/run/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ./logs/sweep/${now:%Y-%m-%d}/${now:%H-%M-%S}
